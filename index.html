@@ -15,15 +15,48 @@
     <md-toolbar>
         <div class="md-toolbar-tools">
             <p><strong>ngClassifieds</strong></p>
-            <md-button>
+            <md-button ng-click="openSidebar()">
                 <md-icon class="mdi mdi-plus-circle"></md-icon>
                 NEW CLASSIFIEDS
             </md-button>
         </div>
     </md-toolbar>
     
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools">Add a Classifides</h1>
+        </md-toolbar>
+        
+        <md-content layout-padding>
+            <form action="">
+                <md-input-container>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" md-autofocus ng-model="classified.title">
+                </md-input-container>
+                <md-input-container>
+                    <label for="price">Price</label>
+                    <input type="text" id="price" ng-model="classified.price">
+                </md-input-container>
+                <md-input-container>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" ng-model="classified.description">
+                </md-input-container>
+                <md-input-container>
+                    <label for="image">Image Link</label>
+                    <input type="text" id="image" ng-model="classified.image">
+                </md-input-container>
+                <div class="clearfix"></div>
+                <md-button class="md-primary" ng-click="saveClassified(classified)" ng-if="!editing">Save</md-button>
+                <md-button class="md-primary" ng-if="editing" ng-click="saveEdit()">Save Edit</md-button>
+                <md-button class="md-warn" ng-click="closeSidebar()">Cancel</md-button>
+                
+<!--                <pre>{{classified | json}}</pre>-->
+            </form>
+        </md-content>
+    </md-sidenav>
+    
     <md-content class="md-padding" layout="row" layout-wrap>
-        <md-card flex="30" ng-repeat="classified in classifieds">
+        <md-card flex="30" ng-repeat="classified in classifieds" flex="30">
             <img ng-src="{{classified.image}}" alt="">
             <md-card-content>
                 <div class="classified-info" ng-show="!showContact">
@@ -44,10 +77,10 @@
                     <md-button ng-show="showAdmin" ng-click="showAdmin = false">Close</md-button>
                 </div>
                 <div class="classified-admin" ng-if="showAdmin">
-                    <h3>Admin</h3>
+                    <h3>Admin</h3> 
                     <div layout="row">
-                        <md-button class="md-primary">Edit</md-button>
-                        <md-button class="md-warn">Delete</md-button>
+                        <md-button class="md-primary" ng-click="editClassified(classified )">Edit</md-button>
+                        <md-button class="md-warn" ng-click="deleteClassified($event, classified)">Delete</md-button>
                     </div>
                 </div>
             </md-card-content>
