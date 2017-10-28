@@ -31,7 +31,7 @@
                     <h2>{{classified.posted | date}}</h2>
                     <h3>{{classified.price | currency}}</h3>
                     <p>{{classified.description}}</p>
-                </div>
+                 </div>
                 <div class="classified-contact" ng-show="showContact">
                     <p><md-icon class="mdi mdi-account"></md-icon>{{classified.contact.name}}</p>
                     <p><md-icon class="mdi mdi-phone"></md-icon>{{classified.contact.phone}}</p>
@@ -59,7 +59,8 @@
        
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
-    <script type="text/javascript" src="components/classifieds.ctr.js"></script>
+    <script type="text/javascript" src="components/classifieds.ctrl.js"></script>
+    <script type="text/javascript" src="components/classifieds.factory.js"></script>
     <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>

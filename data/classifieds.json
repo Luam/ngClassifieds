@@ -1,9 +1,4 @@
-(function(){
-    "use strict";
-    angular
-        .module("ngClassifieds")
-        .controller("classifiedsCtrl", function($scope){
-        $scope.classifieds = [
+[
           {
             "id":"1",
             "title":"20 Foot Equipment Trailer",
@@ -57,23 +52,6 @@
             "views":23
           },
           {
-            "id":"4",
-            "title":"Leather Sofa",
-            "description":"Brown leather sofa for sale.  Good condition but small tear on one cushion.",
-            "price":250,
-            "posted":"2015-11-01",
-            "contact": {
-              "name":"John Doe",
-              "phone":"(555) 555-5555",
-              "email":"johndoe@gmail.com"
-            },
-            "categories":[
-              "Furniture"
-            ],
-            "image":"http://www.huntmedia.co/wp-content/uploads/2015/09/beautiful-leather-couch-and-loveseat-on-leather-sofa-size-guide-leather-couch-and-loveseat.jpg",
-            "views":77
-          },
-          {
             "id":"5",
             "title":"MacBook Air",
             "description":"2013 MacBook Air. Great condition, but a few scratches.",
@@ -110,5 +88,3 @@
             "views":423
           }
         ]
-    });
-})();
