@@ -19,9 +19,29 @@
                 <md-icon class="mdi mdi-plus-circle"></md-icon>
                 NEW CLASSIFIEDS
             </md-button>
+            <md-button ng-click="showFilters = true">
+                <md-icon class="mdi mdi-magnify"></md-icon>
+                Filters
+            </md-button>
         </div>
     </md-toolbar>
-    
+    <div class="filters" layout="row" layout-align="center center" ng-show="showFilters">
+        <md-input-container>
+            <label for="">Enter Search Term</label>
+            <input type="text" ng-model="classifiedsFilter">
+        </md-input-container>
+        <md-input-container>
+            <label for="">Category</label>
+            <md-select ng-model="category">
+                <md-option ng-repeat="category in categories" value="{{category}}">
+                    {{category}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <div layout="row">
+            <md-button class="md-warn" ng-click="classifiedsFilter = ''; category = '' ">Clear</md-button>
+        </div>
+    </div>
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
         <md-toolbar>
             <h1 class="md-toolbar-tools">Add a Classifides</h1>
@@ -56,7 +76,7 @@
     </md-sidenav>
     
     <md-content class="md-padding" layout="row" layout-wrap>
-        <md-card flex="30" ng-repeat="classified in classifieds" flex="30">
+        <md-card class="classified" flex="30" ng-repeat="classified in classifieds | filter:classifiedsFilter | filter:category" flex="30">
             <img ng-src="{{classified.image}}" alt="">
             <md-card-content>
                 <div class="classified-info" ng-show="!showContact">
@@ -97,6 +117,7 @@
     <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
    
     
 </body>
