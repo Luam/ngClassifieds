@@ -1,3 +1,18 @@
+<!--NAVBAR-->
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <p><strong>ngClassifieds</strong></p>
+        <md-button ng-click="vm.openSidebar()">
+            <md-icon class="mdi mdi-plus-circle"></md-icon>
+            NEW CLASSIFIEDS
+        </md-button>
+        <md-button ng-click="showFilters = true">
+            <md-icon class="mdi mdi-magnify"></md-icon>
+            Filters
+        </md-button>
+    </div>
+</md-toolbar>
+
 <div class="filters" layout="row" layout-align="center center" ng-show="showFilters">
     <md-input-container>
         <label for="">Enter Search Term</label>
@@ -15,37 +30,8 @@
         <md-button class="md-warn" ng-click="classifiedsFilter = ''; category = '' ">Clear</md-button>
     </div>
 </div>
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar>
-        <h1 class="md-toolbar-tools">Add a Classifides</h1>
-    </md-toolbar>
 
-    <md-content layout-padding>
-        <form action="">
-            <md-input-container>
-                <label for="title">Title</label>
-                <input type="text" id="title" md-autofocus ng-model="classified.title">
-            </md-input-container>
-            <md-input-container>
-                <label for="price">Price</label>
-                <input type="text" id="price" ng-model="classified.price">
-            </md-input-container>
-            <md-input-container>
-                <label for="description">Description</label>
-                <input type="text" id="description" ng-model="classified.description">
-            </md-input-container>
-            <md-input-container>
-                <label for="image">Image Link</label>
-                <input type="text" id="image" ng-model="classified.image">
-            </md-input-container>
-            <div class="clearfix"></div>
-            <md-button class="md-primary" ng-click="vm.saveClassified(classified)" ng-if="!vm.editing">Save</md-button>
-            <md-button class="md-primary" ng-if="vm.editing" ng-click="vm.saveEdit()">Save Edit</md-button>
-            <md-button class="md-warn" ng-click="vm.closeSidebar()">Cancel</md-button>
-
-        </form>
-    </md-content>
-</md-sidenav>
+<div ui-view=""></div>
 
 <md-content class="md-padding" layout="row" layout-wrap>
     <md-card class="classified" flex="30" ng-repeat="classified in vm.classifieds | filter:classifiedsFilter | filter:category" flex="30">
@@ -71,7 +57,7 @@
             <div class="classified-admin" ng-if="showAdmin">
                 <h3>Admin</h3> 
                 <div layout="row">
-                    <md-button class="md-primary" ng-click="vm.editClassified(classified )">Edit</md-button>
+                    <md-button class="md-primary" ng-click="vm.editClassified(classified)">Edit</md-button>
                     <md-button class="md-warn" ng-click="vm.deleteClassified($event, classified)">Delete</md-button>
                 </div>
             </div>
