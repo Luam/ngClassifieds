@@ -7,7 +7,7 @@
     .config(function($mdThemingProvider, $stateProvider, $urlRouterProvider) {
 
       $mdThemingProvider.theme('default')
-        .primaryPalette('teal')
+        .primaryPalette('blue')
         .accentPalette('orange');
 
       $urlRouterProvider.otherwise('/classifieds');

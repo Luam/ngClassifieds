@@ -11,11 +11,8 @@
       vm.openSidebar = openSidebar;
       vm.showFilters = false;
       
-//      var categories = {
-//          
-//      }
+      vm.classifieds = classifiedsFactory.ref; //from firebase
       
-      vm.classifieds = classifiedsFactory.ref;
       vm.classifieds.$loaded().then(function(classifieds) {
         vm.categories = getCategories(classifieds);
       });
