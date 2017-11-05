@@ -11,33 +11,27 @@
   <link rel="stylesheet" href="css/style.css" >
 </head>
 <body>
-    <!--NAVBAR-->
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <p><strong>ngClassifieds</strong></p>
-            <md-button ng-click="vm.openSidebar()">
-                <md-icon class="mdi mdi-plus-circle"></md-icon>
-                NEW CLASSIFIEDS
-            </md-button>
-            <md-button ng-click="showFilters = true">
-                <md-icon class="mdi mdi-magnify"></md-icon>
-                Filters
-            </md-button>
-        </div>
-    </md-toolbar>
+
+    <div ui-view></div>
     
-    <div ui-view=""></div>
-       
-          
-    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
-    <script type="text/javascript" src="scripts/app.js"></script>
-    <script type="text/javascript" src="components/classifieds.ctrl.js"></script>
-    <script type="text/javascript" src="components/classifieds.factory.js"></script>
-    <script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
-    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
-    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.5.1/lodash.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="components/classifieds/classifieds.ctrl.js"></script>
+    <script src="components/classifieds/classifieds.factory.js"></script>
+    <script src="components/classifieds/new/classifieds.new.ctrl.js"></script>
+    <script src="components/classifieds/edit/classifieds.edit.ctrl.js"></script>
+    <script src="components/classifieds/card/classified-card.dir.js"></script>
+
    
     
 </body>

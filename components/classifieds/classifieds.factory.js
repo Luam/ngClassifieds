@@ -1,15 +1,17 @@
-(function(){
-    "use strict";
-    
-    angular
-        .module("ngClassifieds")
-        .factory("classifiedsFactory", function($http){
-        
-        function getClassifieds(){
-            return $http.get('data/classifieds.json');
-        }
-        return{
-            getClassifieds: getClassifieds
-        }
+(function() {
+
+  "use strict";
+
+  angular
+    .module('ngClassifieds')
+    .factory('classifiedsFactory', function($http, $firebaseArray) {
+
+      var ref = new Firebase('https://ngclassfieds-437c9.firebaseio.com/');
+
+      return {
+        ref: $firebaseArray(ref)
+      }
+      
     });
+    
 })();
